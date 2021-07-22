@@ -74,6 +74,49 @@ public class Admin {
 	public void setAdminEmailId(String adminEmailId) {
 		this.adminEmailId = adminEmailId;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((adminContact == null) ? 0 : adminContact.hashCode());
+		result = prime * result + ((adminEmailId == null) ? 0 : adminEmailId.hashCode());
+		result = prime * result + (int) (adminId ^ (adminId >>> 32));
+		result = prime * result + ((adminName == null) ? 0 : adminName.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Admin other = (Admin) obj;
+		if (adminContact == null) {
+			if (other.adminContact != null)
+				return false;
+		} else if (!adminContact.equals(other.adminContact))
+			return false;
+		if (adminEmailId == null) {
+			if (other.adminEmailId != null)
+				return false;
+		} else if (!adminEmailId.equals(other.adminEmailId))
+			return false;
+		if (adminId != other.adminId)
+			return false;
+		if (adminName == null) {
+			if (other.adminName != null)
+				return false;
+		} else if (!adminName.equals(other.adminName))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", adminName=" + adminName + ", adminContact=" + adminContact
+				+ ", adminEmailId=" + adminEmailId + "]";
+	}
 	
 	
 }

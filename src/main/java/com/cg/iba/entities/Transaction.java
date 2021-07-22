@@ -125,6 +125,61 @@ public class Transaction {
 	public void setTransactionRemarks(String transactionRemarks) {
 		this.transactionRemarks = transactionRemarks;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((bankAccount == null) ? 0 : bankAccount.hashCode());
+		result = prime * result + ((dateTime == null) ? 0 : dateTime.hashCode());
+		result = prime * result + (int) (transactionId ^ (transactionId >>> 32));
+		result = prime * result + ((transactionRemarks == null) ? 0 : transactionRemarks.hashCode());
+		result = prime * result + ((transactionStatus == null) ? 0 : transactionStatus.hashCode());
+		result = prime * result + ((transactionType == null) ? 0 : transactionType.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Transaction other = (Transaction) obj;
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
+			return false;
+		if (bankAccount == null) {
+			if (other.bankAccount != null)
+				return false;
+		} else if (!bankAccount.equals(other.bankAccount))
+			return false;
+		if (dateTime == null) {
+			if (other.dateTime != null)
+				return false;
+		} else if (!dateTime.equals(other.dateTime))
+			return false;
+		if (transactionId != other.transactionId)
+			return false;
+		if (transactionRemarks == null) {
+			if (other.transactionRemarks != null)
+				return false;
+		} else if (!transactionRemarks.equals(other.transactionRemarks))
+			return false;
+		if (transactionStatus != other.transactionStatus)
+			return false;
+		if (transactionType != other.transactionType)
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Transaction [transactionId=" + transactionId + ", amount=" + amount + ", transactionType="
+				+ transactionType + ", dateTime=" + dateTime + ", bankAccount=" + bankAccount + ", transactionStatus="
+				+ transactionStatus + ", transactionRemarks=" + transactionRemarks + "]";
+	}
     
     
 }

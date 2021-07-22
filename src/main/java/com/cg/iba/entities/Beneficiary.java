@@ -90,6 +90,49 @@ public class Beneficiary {
 	public void setAccountType(AccountType accountType) {
 		this.accountType = accountType;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((IFSC == null) ? 0 : IFSC.hashCode());
+		result = prime * result + ((accountType == null) ? 0 : accountType.hashCode());
+		result = prime * result + (int) (beneficiaryAccNo ^ (beneficiaryAccNo >>> 32));
+		result = prime * result + (int) (beneficiaryId ^ (beneficiaryId >>> 32));
+		result = prime * result + ((beneficiaryName == null) ? 0 : beneficiaryName.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Beneficiary other = (Beneficiary) obj;
+		if (IFSC == null) {
+			if (other.IFSC != null)
+				return false;
+		} else if (!IFSC.equals(other.IFSC))
+			return false;
+		if (accountType != other.accountType)
+			return false;
+		if (beneficiaryAccNo != other.beneficiaryAccNo)
+			return false;
+		if (beneficiaryId != other.beneficiaryId)
+			return false;
+		if (beneficiaryName == null) {
+			if (other.beneficiaryName != null)
+				return false;
+		} else if (!beneficiaryName.equals(other.beneficiaryName))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Beneficiary [beneficiaryId=" + beneficiaryId + ", beneficiaryName=" + beneficiaryName
+				+ ", beneficiaryAccNo=" + beneficiaryAccNo + ", IFSC=" + IFSC + ", accountType=" + accountType + "]";
+	}
 	
 	
 }

@@ -106,6 +106,58 @@ public class Nominee {
 	public void setRelation(Relation relation) {
 		this.relation = relation;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((govtId == null) ? 0 : govtId.hashCode());
+		result = prime * result + ((govtIdType == null) ? 0 : govtIdType.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + (int) (nomineeId ^ (nomineeId >>> 32));
+		result = prime * result + ((phoneNo == null) ? 0 : phoneNo.hashCode());
+		result = prime * result + ((relation == null) ? 0 : relation.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Nominee other = (Nominee) obj;
+		if (govtId == null) {
+			if (other.govtId != null)
+				return false;
+		} else if (!govtId.equals(other.govtId))
+			return false;
+		if (govtIdType == null) {
+			if (other.govtIdType != null)
+				return false;
+		} else if (!govtIdType.equals(other.govtIdType))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (nomineeId != other.nomineeId)
+			return false;
+		if (phoneNo == null) {
+			if (other.phoneNo != null)
+				return false;
+		} else if (!phoneNo.equals(other.phoneNo))
+			return false;
+		if (relation != other.relation)
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Nominee [nomineeId=" + nomineeId + ", name=" + name + ", govtId=" + govtId + ", govtIdType="
+				+ govtIdType + ", phoneNo=" + phoneNo + ", relation=" + relation + "]";
+	}
     
     
  }

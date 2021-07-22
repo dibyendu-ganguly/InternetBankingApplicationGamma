@@ -16,20 +16,35 @@ public class TermAccount extends Account{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	/**
-	 * @param accounId
+	 * @param amount
+	 * @param months
+	 * @param penaltyAmount
+	 */
+	public TermAccount(double amount, int months, double penaltyAmount) {
+		super();
+		this.amount = amount;
+		this.months = months;
+		this.penaltyAmount = penaltyAmount;
+	}
+
+	/**
+	 * @param accountId
 	 * @param interestRate
 	 * @param balance
+	 * @param accountType
 	 * @param dateOfOpening
 	 * @param customers
 	 * @param nominees
 	 * @param beneficiaries
 	 */
-	public TermAccount(long accounId, double interestRate, double balance, LocalDate dateOfOpening,
-			Set<Customer> customers, Set<Nominee> nominees, Set<Beneficiary> beneficiaries) {
-		super(accounId, interestRate, balance, dateOfOpening, customers, nominees, beneficiaries);
+	public TermAccount(long accountId, double interestRate, double balance, AccountType accountType,
+			LocalDate dateOfOpening, Set<Customer> customers, Set<Nominee> nominees, Set<Beneficiary> beneficiaries) {
+		super(accountId, interestRate, balance, accountType, dateOfOpening, customers, nominees, beneficiaries);
 		// TODO Auto-generated constructor stub
 	}
+
 	/**
 	 * @return the amount
 	 */
@@ -65,7 +80,40 @@ public class TermAccount extends Account{
 	 */
 	public void setPenaltyAmount(double penaltyAmount) {
 		this.penaltyAmount = penaltyAmount;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + months;
+		temp = Double.doubleToLongBits(penaltyAmount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TermAccount other = (TermAccount) obj;
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
+			return false;
+		if (months != other.months)
+			return false;
+		if (Double.doubleToLongBits(penaltyAmount) != Double.doubleToLongBits(other.penaltyAmount))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "TermAccount [amount=" + amount + ", months=" + months + ", penaltyAmount=" + penaltyAmount + "]";
 	} 
-
+	
     
 }
