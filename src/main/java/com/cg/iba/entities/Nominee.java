@@ -9,6 +9,31 @@ public class Nominee {
     private String govtIdType; 
     private String phoneNo;
     private Relation relation;
+    
+	/**
+	 * 
+	 */
+	public Nominee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param nomineeId
+	 * @param name
+	 * @param govtId
+	 * @param govtIdType
+	 * @param phoneNo
+	 * @param relation
+	 */
+	public Nominee(long nomineeId, String name, String govtId, String govtIdType, String phoneNo, Relation relation) {
+		super();
+		this.nomineeId = nomineeId;
+		this.name = name;
+		this.govtId = govtId;
+		this.govtIdType = govtIdType;
+		this.phoneNo = phoneNo;
+		this.relation = relation;
+	}
 	/**
 	 * @return the nomineeId
 	 */

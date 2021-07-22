@@ -13,6 +13,34 @@ public class Transaction {
     private Account bankAccount; 
     private TransactionStatus transactionStatus;
     private String transactionRemarks;
+    /**
+	 * 
+	 */
+	public Transaction() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param transactionId
+	 * @param amount
+	 * @param transactionType
+	 * @param dateTime
+	 * @param bankAccount
+	 * @param transactionStatus
+	 * @param transactionRemarks
+	 */
+	public Transaction(long transactionId, double amount, TransactionType transactionType, LocalDateTime dateTime,
+			Account bankAccount, TransactionStatus transactionStatus, String transactionRemarks) {
+		super();
+		this.transactionId = transactionId;
+		this.amount = amount;
+		this.transactionType = transactionType;
+		this.dateTime = dateTime;
+		this.bankAccount = bankAccount;
+		this.transactionStatus = transactionStatus;
+		this.transactionRemarks = transactionRemarks;
+	}
+	
 	/**
 	 * @return the transactionId
 	 */

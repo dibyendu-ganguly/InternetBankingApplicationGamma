@@ -13,6 +13,30 @@ public class Customer {
     private Gender gender;
 	
     /**
+	 * 
+	 */
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param customerId
+	 * @param customerName
+	 * @param phoneNo
+	 * @param emailId
+	 * @param age
+	 * @param gender
+	 */
+	public Customer(long customerId, String customerName, String phoneNo, String emailId, int age, Gender gender) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.phoneNo = phoneNo;
+		this.emailId = emailId;
+		this.age = age;
+		this.gender = gender;
+	}
+	/**
 	 * @return the customerId
 	 */
 	public long getCustomerId() {

@@ -5,6 +5,27 @@ public class Admin {
 	private String adminName;
 	private String adminContact;
 	private String adminEmailId;
+	
+	/**
+	 * @param adminId
+	 * @param adminName
+	 * @param adminContact
+	 * @param adminEmailId
+	 */
+	public Admin(long adminId, String adminName, String adminContact, String adminEmailId) {
+		super();
+		this.adminId = adminId;
+		this.adminName = adminName;
+		this.adminContact = adminContact;
+		this.adminEmailId = adminEmailId;
+	}
+	/**
+	 * 
+	 */
+	public Admin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @return the adminId
 	 */

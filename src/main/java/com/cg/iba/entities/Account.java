@@ -5,7 +5,34 @@ import java.time.LocalDate;
 import java.util.Set;
 
 public class Account {
-    private long accounId; 
+    /**
+	 * 
+	 */
+	public Account() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param accounId
+	 * @param interestRate
+	 * @param balance
+	 * @param dateOfOpening
+	 * @param customers
+	 * @param nominees
+	 * @param beneficiaries
+	 */
+	public Account(long accounId, double interestRate, double balance, LocalDate dateOfOpening, Set<Customer> customers,
+			Set<Nominee> nominees, Set<Beneficiary> beneficiaries) {
+		super();
+		this.accounId = accounId;
+		this.interestRate = interestRate;
+		this.balance = balance;
+		this.dateOfOpening = dateOfOpening;
+		this.customers = customers;
+		this.nominees = nominees;
+		this.beneficiaries = beneficiaries;
+	}
+	private long accounId; 
     private double interestRate;
     private double balance;
     private LocalDate  dateOfOpening;

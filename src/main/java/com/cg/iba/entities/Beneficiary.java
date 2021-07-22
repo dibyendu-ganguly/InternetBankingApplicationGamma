@@ -8,6 +8,29 @@ public class Beneficiary {
 	private String IFSC;
 	private AccountType accountType;
 	/**
+	 * 
+	 */
+	public Beneficiary() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param beneficiaryId
+	 * @param beneficiaryName
+	 * @param beneficiaryAccNo
+	 * @param iFSC
+	 * @param accountType
+	 */
+	public Beneficiary(long beneficiaryId, String beneficiaryName, long beneficiaryAccNo, String iFSC,
+			AccountType accountType) {
+		super();
+		this.beneficiaryId = beneficiaryId;
+		this.beneficiaryName = beneficiaryName;
+		this.beneficiaryAccNo = beneficiaryAccNo;
+		IFSC = iFSC;
+		this.accountType = accountType;
+	}
+	/**
 	 * @return the beneficiaryId
 	 */
 	public long getBeneficiaryId() {

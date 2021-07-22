@@ -6,6 +6,24 @@ public class User {
 	private Role role;
 	
 	/**
+	 * 
+	 */
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param userId
+	 * @param password
+	 * @param role
+	 */
+	public User(long userId, String password, Role role) {
+		super();
+		this.userId = userId;
+		this.password = password;
+		this.role = role;
+	}
+	/**
 	 * @return the userId
 	 */
 	public long getUserId() {

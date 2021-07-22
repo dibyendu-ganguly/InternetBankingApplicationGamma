@@ -1,10 +1,35 @@
 package com.cg.iba.entities;
 
+import java.time.LocalDate;
+import java.util.Set;
+
 public class TermAccount extends Account{
 
     private double amount;
     private int months; 
     private double penaltyAmount;
+    
+	/**
+	 * 
+	 */
+	public TermAccount() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	/**
+	 * @param accounId
+	 * @param interestRate
+	 * @param balance
+	 * @param dateOfOpening
+	 * @param customers
+	 * @param nominees
+	 * @param beneficiaries
+	 */
+	public TermAccount(long accounId, double interestRate, double balance, LocalDate dateOfOpening,
+			Set<Customer> customers, Set<Nominee> nominees, Set<Beneficiary> beneficiaries) {
+		super(accounId, interestRate, balance, dateOfOpening, customers, nominees, beneficiaries);
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @return the amount
 	 */
