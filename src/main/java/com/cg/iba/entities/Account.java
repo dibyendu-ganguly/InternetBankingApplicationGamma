@@ -5,6 +5,13 @@ import java.time.LocalDate;
 import java.util.Set;
 
 public class Account {
+	private long accountId; 
+    private double interestRate;
+    private double balance;
+    private LocalDate  dateOfOpening;
+    private Set<Customer> customers;
+    private Set<Nominee> nominees;
+    private Set<Beneficiary> beneficiaries;
     /**
 	 * 
 	 */
@@ -13,7 +20,7 @@ public class Account {
 		// TODO Auto-generated constructor stub
 	}
 	/**
-	 * @param accounId
+	 * @param accountId
 	 * @param interestRate
 	 * @param balance
 	 * @param dateOfOpening
@@ -21,10 +28,10 @@ public class Account {
 	 * @param nominees
 	 * @param beneficiaries
 	 */
-	public Account(long accounId, double interestRate, double balance, LocalDate dateOfOpening, Set<Customer> customers,
+	public Account(long accountId, double interestRate, double balance, LocalDate dateOfOpening, Set<Customer> customers,
 			Set<Nominee> nominees, Set<Beneficiary> beneficiaries) {
 		super();
-		this.accounId = accounId;
+		this.accountId = accountId;
 		this.interestRate = interestRate;
 		this.balance = balance;
 		this.dateOfOpening = dateOfOpening;
@@ -32,24 +39,17 @@ public class Account {
 		this.nominees = nominees;
 		this.beneficiaries = beneficiaries;
 	}
-	private long accounId; 
-    private double interestRate;
-    private double balance;
-    private LocalDate  dateOfOpening;
-    private Set<Customer> customers;
-    private Set<Nominee> nominees;
-    private Set<Beneficiary> beneficiaries;
 	/**
-	 * @return the accounId
+	 * @return the accountId
 	 */
-	public long getAccounId() {
-		return accounId;
+	public long getAccountId() {
+		return accountId;
 	}
 	/**
-	 * @param accounId the accounId to set
+	 * @param accountId the accountId to set
 	 */
-	public void setAccounId(long accounId) {
-		this.accounId = accounId;
+	public void setAccountId(long accountId) {
+		this.accountId = accountId;
 	}
 	/**
 	 * @return the interestRate
