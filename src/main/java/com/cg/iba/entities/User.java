@@ -1,8 +1,25 @@
 package com.cg.iba.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User")
 public class User {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="user_id")
 	private long userId;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="role")
 	private Role role;
 	
 	/**
@@ -10,7 +27,7 @@ public class User {
 	 */
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	/**
 	 * @param userId

@@ -1,9 +1,27 @@
 package com.cg.iba.entities;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Admin")
 public class Admin {
-	private long adminId;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="user_id")
+	User user;
+	
+	@Column(name="admin_name")
 	private String adminName;
+	
+	@Column(name="admin_contact")
 	private String adminContact;
+	
+	@Column(name="admin_email_id")
 	private String adminEmailId;
 	
 	/**
@@ -12,9 +30,8 @@ public class Admin {
 	 * @param adminContact
 	 * @param adminEmailId
 	 */
-	public Admin(long adminId, String adminName, String adminContact, String adminEmailId) {
+	public Admin(String adminName, String adminContact, String adminEmailId) {
 		super();
-		this.adminId = adminId;
 		this.adminName = adminName;
 		this.adminContact = adminContact;
 		this.adminEmailId = adminEmailId;
@@ -24,20 +41,8 @@ public class Admin {
 	 */
 	public Admin() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	/**
-	 * @return the adminId
-	 */
-	public long getAdminId() {
-		return adminId;
-	}
-	/**
-	 * @param adminId the adminId to set
-	 */
-	public void setAdminId(long adminId) {
-		this.adminId = adminId;
-	}
+	
 	/**
 	 * @return the adminName
 	 */
@@ -80,7 +85,6 @@ public class Admin {
 		int result = 1;
 		result = prime * result + ((adminContact == null) ? 0 : adminContact.hashCode());
 		result = prime * result + ((adminEmailId == null) ? 0 : adminEmailId.hashCode());
-		result = prime * result + (int) (adminId ^ (adminId >>> 32));
 		result = prime * result + ((adminName == null) ? 0 : adminName.hashCode());
 		return result;
 	}
@@ -103,8 +107,6 @@ public class Admin {
 				return false;
 		} else if (!adminEmailId.equals(other.adminEmailId))
 			return false;
-		if (adminId != other.adminId)
-			return false;
 		if (adminName == null) {
 			if (other.adminName != null)
 				return false;
@@ -114,7 +116,7 @@ public class Admin {
 	}
 	@Override
 	public String toString() {
-		return "Admin [adminId=" + adminId + ", adminName=" + adminName + ", adminContact=" + adminContact
+		return "Admin [adminId=" + user.getUserId() + ", adminName=" + adminName + ", adminContact=" + adminContact
 				+ ", adminEmailId=" + adminEmailId + "]";
 	}
 	

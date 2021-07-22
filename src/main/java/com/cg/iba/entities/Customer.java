@@ -1,15 +1,34 @@
 package com.cg.iba.entities;
 
-//import java.util.HashSet;
-//import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="Customer")
 public class Customer {
 
-    private long customerId; 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    User user;
+    
+    @Column(name="customer_name")
     private String customerName;
+    
+    @Column(name="phone_no")
     private String phoneNo;
+    
+    @Column(name="email_id")
     private String emailId;
+    
+    @Column(name="age")
     private int age;
+    
+    @Column(name="gender")
     private Gender gender;
 	
     /**
@@ -17,7 +36,6 @@ public class Customer {
 	 */
 	public Customer() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * @param customerId
@@ -27,9 +45,8 @@ public class Customer {
 	 * @param age
 	 * @param gender
 	 */
-	public Customer(long customerId, String customerName, String phoneNo, String emailId, int age, Gender gender) {
+	public Customer(String customerName, String phoneNo, String emailId, int age, Gender gender) {
 		super();
-		this.customerId = customerId;
 		this.customerName = customerName;
 		this.phoneNo = phoneNo;
 		this.emailId = emailId;
@@ -38,18 +55,6 @@ public class Customer {
 	}
 	/**
 	 * @return the customerId
-	 */
-	public long getCustomerId() {
-		return customerId;
-	}
-	/**
-	 * @param customerId the customerId to set
-	 */
-	public void setCustomerId(long customerId) {
-		this.customerId = customerId;
-	}
-	/**
-	 * @return the customerName
 	 */
 	public String getCustomerName() {
 		return customerName;
@@ -113,7 +118,6 @@ public class Customer {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + age;
-		result = prime * result + (int) (customerId ^ (customerId >>> 32));
 		result = prime * result + ((customerName == null) ? 0 : customerName.hashCode());
 		result = prime * result + ((emailId == null) ? 0 : emailId.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
@@ -130,8 +134,6 @@ public class Customer {
 			return false;
 		Customer other = (Customer) obj;
 		if (age != other.age)
-			return false;
-		if (customerId != other.customerId)
 			return false;
 		if (customerName == null) {
 			if (other.customerName != null)
@@ -154,7 +156,7 @@ public class Customer {
 	}
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", phoneNo=" + phoneNo
+		return "Customer [customerId=" + user.getUserId() + ", customerName=" + customerName + ", phoneNo=" + phoneNo
 				+ ", emailId=" + emailId + ", age=" + age + ", gender=" + gender + "]";
 	} 
    
