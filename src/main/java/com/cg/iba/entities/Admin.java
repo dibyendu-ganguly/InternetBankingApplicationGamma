@@ -13,21 +13,21 @@ import javax.persistence.Table;
 public class Admin {
 	
 	@Id
-	@Column(name="admin_id")
+	@Column(name="adminId")
 	private Long admin_id;
 	
 	@OneToOne
 	@MapsId
-	@JoinColumn(name="admin_id")
+	@JoinColumn(name="adminId")
 	User user;
 	
-	@Column(name="admin_name")
+	@Column(name="adminName")
 	private String adminName;
 	
-	@Column(name="admin_contact")
+	@Column(name="adminContact")
 	private String adminContact;
 	
-	@Column(name="admin_email_id")
+	@Column(name="adminEmailId")
 	private String adminEmailId;
 
 	/**

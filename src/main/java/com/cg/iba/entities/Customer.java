@@ -15,21 +15,21 @@ import javax.persistence.Table;
 public class Customer {
 
 	@Id
-	@Column(name="customer_id")
+	@Column(name="customerId")
 	private Long customer_id;
 	
     @OneToOne
     @MapsId
-    @JoinColumn(name="customer_id")
+    @JoinColumn(name="customerId")
     User user;
     
-    @Column(name="customer_name")
+    @Column(name="customerName")
     private String customerName;
     
-    @Column(name="phone_no")
+    @Column(name="phoneNo")
     private String phoneNo;
     
-    @Column(name="email_id")
+    @Column(name="emailId")
     private String emailId;
     
     @Column(name="age")
