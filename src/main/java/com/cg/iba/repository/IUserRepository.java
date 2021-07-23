@@ -9,7 +9,7 @@ import com.cg.iba.exception.DetailsNotFoundException;
 //import com.cg.iba.exception.EmptyListException;
 import com.cg.iba.exception.InvalidDetailsException;
 
-public interface IUserRepository extends JpaRepository<User, Long> {
+public interface IUserRepository{
 	public User addNewUser(User user) throws InvalidDetailsException;
 	public User signIn(User user)throws InvalidDetailsException;
 	public User signOut(User user) throws InvalidDetailsException;
