@@ -2,6 +2,8 @@ package com.cg.iba.repository;
 
 import java.util.Set;
 
+
+
 import com.cg.iba.entities.Account;
 import com.cg.iba.entities.SavingsAccount;
 import com.cg.iba.entities.TermAccount;
@@ -20,13 +22,13 @@ public interface IAccountRepository {
 	public Transaction deposit(long accounId, double amount) throws InvalidAccountException,InvalidAmountException;
 	
 	public SavingsAccount addSavingsAccount(SavingsAccount saving) throws InvalidDetailsException;
-	public  TermAccount addTermAccount(TermAccount term) throws InvalidDetailsException;
+	public TermAccount addTermAccount(TermAccount term) throws InvalidDetailsException;
 	
 	public SavingsAccount updateSavingsAccount(SavingsAccount saving) throws InvalidDetailsException;
-	public  TermAccount updateTermAccount(TermAccount term) throws InvalidDetailsException;
+	public TermAccount updateTermAccount(TermAccount term) throws InvalidDetailsException;
 	
-	public  boolean closeSavingsAccount(SavingsAccount accountNo) throws InvalidAccountException;
-	public  boolean closeTermAccount(TermAccount accountNo) throws InvalidAccountException;
+	public boolean closeSavingsAccount(SavingsAccount accountNo) throws InvalidAccountException;
+	public boolean closeTermAccount(TermAccount accountNo) throws InvalidAccountException;
 	
 	public  Account findAccountById(int account_id) throws InvalidAccountException;
 	
