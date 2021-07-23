@@ -1,15 +1,32 @@
 package com.cg.iba.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 //import java.util.HashSet;
 //import java.util.Set;
-
+@Entity
+@Table(name="customers")
 public class Customer {
-
-    private long customerId; 
-    private String customerName;
-    private String phoneNo;
-    private String emailId;
-    private int age;
+	@Id
+	@Column(name="customerId")
+	private long customerId;
+	
+	@Column(name="customerName")
+	private String customerName;
+	
+	@Column(name="phoneNo")
+	  private String phoneNo;;
+	
+	@Column(name="emailId")
+	private String emailId;
+	
+	@Column(name="age")
+	 private int age;
+	
+	@Column(name="gender")
     private Gender gender;
 	
     /**

@@ -3,9 +3,25 @@ package com.cg.iba.entities;
 import java.time.LocalDate;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="SavingsAccount")
 public class SavingsAccount extends Account{
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(name="accountId")
+	private long accountId;
+	@Column(name="minBalance")
     private double minBalance;
+	@Column(name="fine")
     private double fine;
     
 	/**
