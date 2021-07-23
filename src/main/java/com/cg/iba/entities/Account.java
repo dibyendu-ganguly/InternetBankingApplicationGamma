@@ -4,12 +4,33 @@ package com.cg.iba.entities;
 import java.time.LocalDate;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Account")
 public class Account {
-	private long accountId; 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long accountId;
+	
+	@Column(name = "interestRate")
     private double interestRate;
+	
+	@Column(name = "balance")
     private double balance;
+	
+	@Column(name = "accountType")
     private AccountType accountType;
+	
+	@Column(name = "dateOfOpening")
     private LocalDate  dateOfOpening;
+	
+	
     private Set<Customer> customers;
     private Set<Nominee> nominees;
     private Set<Beneficiary> beneficiaries;

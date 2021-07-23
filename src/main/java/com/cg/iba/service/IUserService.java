@@ -9,7 +9,7 @@ import com.cg.iba.exception.InvalidDetailsException;
 
 public interface IUserService {
 
-	public  User addNewUser(User user) throws InvalidDetailsException;
+	public User addNewUser(User user) throws InvalidDetailsException;
 	public User signIn(User user)throws InvalidDetailsException;
 	public User signOut(User user) throws InvalidDetailsException;
 	public User updateUserInfo(User user) throws InvalidDetailsException;

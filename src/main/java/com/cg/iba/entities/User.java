@@ -1,16 +1,45 @@
 package com.cg.iba.entities;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User")
 public class User {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="userId")
 	private long userId;
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="role")
 	private Role role;
+	
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private Customer customer;
+	
+	
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private Admin admin;
 	
 	/**
 	 * 
 	 */
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	/**
 	 * @param userId

@@ -1,89 +1,130 @@
 package com.cg.iba.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Admin")
 public class Admin {
-	private long adminId;
-	private String adminName;
-	private String adminContact;
-	private String adminEmailId;
 	
+	@Id
+	@Column(name="adminId")
+	private Long admin_id;
+	
+	@OneToOne
+	@MapsId
+	@JoinColumn(name="adminId")
+	User user;
+	
+	@Column(name="adminName")
+	private String adminName;
+	
+	@Column(name="adminContact")
+	private String adminContact;
+	
+	@Column(name="adminEmailId")
+	private String adminEmailId;
+
 	/**
-	 * @param adminId
+	 * 
+	 * @param admin_id
 	 * @param adminName
 	 * @param adminContact
 	 * @param adminEmailId
 	 */
-	public Admin(long adminId, String adminName, String adminContact, String adminEmailId) {
+	
+	public Admin(Long admin_id, String adminName, String adminContact, String adminEmailId) {
 		super();
-		this.adminId = adminId;
+		this.admin_id = admin_id;
 		this.adminName = adminName;
 		this.adminContact = adminContact;
 		this.adminEmailId = adminEmailId;
 	}
-	/**
-	 * 
-	 */
+
 	public Admin() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
 	/**
-	 * @return the adminId
+	 * 
+	 * @return admin_id
 	 */
-	public long getAdminId() {
-		return adminId;
+	public Long getAdmin_id() {
+		return admin_id;
 	}
+
 	/**
-	 * @param adminId the adminId to set
+	 * 
+	 * @param admin_id
 	 */
-	public void setAdminId(long adminId) {
-		this.adminId = adminId;
+	public void setAdmin_id(Long admin_id) {
+		this.admin_id = admin_id;
 	}
 	/**
-	 * @return the adminName
+	 * 
+	 * @return adminName
 	 */
 	public String getAdminName() {
 		return adminName;
 	}
+
 	/**
-	 * @param adminName the adminName to set
+	 * 
+	 * @param adminName
 	 */
 	public void setAdminName(String adminName) {
 		this.adminName = adminName;
 	}
+	
 	/**
-	 * @return the adminContact
+	 *
+	 * @return adminContact
 	 */
 	public String getAdminContact() {
 		return adminContact;
 	}
+
 	/**
-	 * @param adminContact the adminContact to set
+	 * 
+	 * @param adminContact
 	 */
 	public void setAdminContact(String adminContact) {
 		this.adminContact = adminContact;
 	}
+
 	/**
-	 * @return the adminEmailId
+	 * 
+	 * @return adminEmailId
 	 */
 	public String getAdminEmailId() {
 		return adminEmailId;
 	}
+
 	/**
-	 * @param adminEmailId the adminEmailId to set
+	 * 
+	 * @param adminEmailId
 	 */
 	public void setAdminEmailId(String adminEmailId) {
 		this.adminEmailId = adminEmailId;
 	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adminContact == null) ? 0 : adminContact.hashCode());
 		result = prime * result + ((adminEmailId == null) ? 0 : adminEmailId.hashCode());
-		result = prime * result + (int) (adminId ^ (adminId >>> 32));
 		result = prime * result + ((adminName == null) ? 0 : adminName.hashCode());
+		result = prime * result + ((admin_id == null) ? 0 : admin_id.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -103,18 +144,22 @@ public class Admin {
 				return false;
 		} else if (!adminEmailId.equals(other.adminEmailId))
 			return false;
-		if (adminId != other.adminId)
-			return false;
 		if (adminName == null) {
 			if (other.adminName != null)
 				return false;
 		} else if (!adminName.equals(other.adminName))
 			return false;
+		if (admin_id == null) {
+			if (other.admin_id != null)
+				return false;
+		} else if (!admin_id.equals(other.admin_id))
+			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Admin [adminId=" + adminId + ", adminName=" + adminName + ", adminContact=" + adminContact
+		return "Admin [admin_id=" + admin_id + ", adminName=" + adminName + ", adminContact=" + adminContact
 				+ ", adminEmailId=" + adminEmailId + "]";
 	}
 	
