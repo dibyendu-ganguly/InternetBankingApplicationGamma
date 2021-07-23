@@ -1,9 +1,10 @@
 package com.cg.iba.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -11,8 +12,13 @@ import javax.persistence.Table;
 @Table(name="Admin")
 public class Admin {
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="user_id")
+	@Id
+	@Column(name="admin_id")
+	private Long admin_id;
+	
+	@OneToOne
+	@MapsId
+	@JoinColumn(name="admin_id")
 	User user;
 	
 	@Column(name="admin_name")
@@ -23,62 +29,91 @@ public class Admin {
 	
 	@Column(name="admin_email_id")
 	private String adminEmailId;
-	
+
 	/**
-	 * @param adminId
+	 * 
+	 * @param admin_id
 	 * @param adminName
 	 * @param adminContact
 	 * @param adminEmailId
 	 */
-	public Admin(String adminName, String adminContact, String adminEmailId) {
+	
+	public Admin(Long admin_id, String adminName, String adminContact, String adminEmailId) {
 		super();
+		this.admin_id = admin_id;
 		this.adminName = adminName;
 		this.adminContact = adminContact;
 		this.adminEmailId = adminEmailId;
 	}
-	/**
-	 * 
-	 */
+
 	public Admin() {
 		super();
 	}
-	
+
 	/**
-	 * @return the adminName
+	 * 
+	 * @return admin_id
+	 */
+	public Long getAdmin_id() {
+		return admin_id;
+	}
+
+	/**
+	 * 
+	 * @param admin_id
+	 */
+	public void setAdmin_id(Long admin_id) {
+		this.admin_id = admin_id;
+	}
+	/**
+	 * 
+	 * @return adminName
 	 */
 	public String getAdminName() {
 		return adminName;
 	}
+
 	/**
-	 * @param adminName the adminName to set
+	 * 
+	 * @param adminName
 	 */
 	public void setAdminName(String adminName) {
 		this.adminName = adminName;
 	}
+	
 	/**
-	 * @return the adminContact
+	 *
+	 * @return adminContact
 	 */
 	public String getAdminContact() {
 		return adminContact;
 	}
+
 	/**
-	 * @param adminContact the adminContact to set
+	 * 
+	 * @param adminContact
 	 */
 	public void setAdminContact(String adminContact) {
 		this.adminContact = adminContact;
 	}
+
 	/**
-	 * @return the adminEmailId
+	 * 
+	 * @return adminEmailId
 	 */
 	public String getAdminEmailId() {
 		return adminEmailId;
 	}
+
 	/**
-	 * @param adminEmailId the adminEmailId to set
+	 * 
+	 * @param adminEmailId
 	 */
 	public void setAdminEmailId(String adminEmailId) {
 		this.adminEmailId = adminEmailId;
 	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -86,8 +121,10 @@ public class Admin {
 		result = prime * result + ((adminContact == null) ? 0 : adminContact.hashCode());
 		result = prime * result + ((adminEmailId == null) ? 0 : adminEmailId.hashCode());
 		result = prime * result + ((adminName == null) ? 0 : adminName.hashCode());
+		result = prime * result + ((admin_id == null) ? 0 : admin_id.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -112,11 +149,17 @@ public class Admin {
 				return false;
 		} else if (!adminName.equals(other.adminName))
 			return false;
+		if (admin_id == null) {
+			if (other.admin_id != null)
+				return false;
+		} else if (!admin_id.equals(other.admin_id))
+			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Admin [adminId=" + user.getUserId() + ", adminName=" + adminName + ", adminContact=" + adminContact
+		return "Admin [admin_id=" + admin_id + ", adminName=" + adminName + ", adminContact=" + adminContact
 				+ ", adminEmailId=" + adminEmailId + "]";
 	}
 	

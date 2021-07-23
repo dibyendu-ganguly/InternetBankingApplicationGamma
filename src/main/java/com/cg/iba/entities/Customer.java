@@ -1,9 +1,11 @@
 package com.cg.iba.entities;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -12,8 +14,13 @@ import javax.persistence.Table;
 @Table(name="Customer")
 public class Customer {
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="user_id")
+	@Id
+	@Column(name="customer_id")
+	private Long customer_id;
+	
+    @OneToOne
+    @MapsId
+    @JoinColumn(name="customer_id")
     User user;
     
     @Column(name="customer_name")
@@ -45,8 +52,9 @@ public class Customer {
 	 * @param age
 	 * @param gender
 	 */
-	public Customer(String customerName, String phoneNo, String emailId, int age, Gender gender) {
+	public Customer(Long customer_id, String customerName, String phoneNo, String emailId, int age, Gender gender) {
 		super();
+		this.customer_id = customer_id;
 		this.customerName = customerName;
 		this.phoneNo = phoneNo;
 		this.emailId = emailId;
@@ -64,6 +72,12 @@ public class Customer {
 	 */
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
+	}
+	public Long getCustomer_id() {
+		return customer_id;
+	}
+	public void setCustomer_id(Long customer_id) {
+		this.customer_id = customer_id;
 	}
 	/**
 	 * @return the phoneNo
@@ -119,6 +133,7 @@ public class Customer {
 		int result = 1;
 		result = prime * result + age;
 		result = prime * result + ((customerName == null) ? 0 : customerName.hashCode());
+		result = prime * result + ((customer_id == null) ? 0 : customer_id.hashCode());
 		result = prime * result + ((emailId == null) ? 0 : emailId.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((phoneNo == null) ? 0 : phoneNo.hashCode());
@@ -140,6 +155,11 @@ public class Customer {
 				return false;
 		} else if (!customerName.equals(other.customerName))
 			return false;
+		if (customer_id == null) {
+			if (other.customer_id != null)
+				return false;
+		} else if (!customer_id.equals(other.customer_id))
+			return false;
 		if (emailId == null) {
 			if (other.emailId != null)
 				return false;
@@ -152,13 +172,18 @@ public class Customer {
 				return false;
 		} else if (!phoneNo.equals(other.phoneNo))
 			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} 
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + user.getUserId() + ", customerName=" + customerName + ", phoneNo=" + phoneNo
+		return "Customer [customer_id=" + customer_id + ", customerName=" + customerName + ", phoneNo=" + phoneNo
 				+ ", emailId=" + emailId + ", age=" + age + ", gender=" + gender + "]";
-	} 
+	}
+	
    
     
 
