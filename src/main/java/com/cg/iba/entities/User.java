@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="User")
+
 public class User {
 	
 	@Id

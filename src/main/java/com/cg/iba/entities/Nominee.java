@@ -1,13 +1,23 @@
 package com.cg.iba.entities;
 
- 
-public class Nominee {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="nominee")
+public class Nominee {
+	@Column(name="nomineeId")
     private long nomineeId;
+	@Column(name="name")
     private String name;
+	@Column(name="govtId")
     private String govtId; 
-    private String govtIdType; 
+	@Column(name="govtIdType")
+    private String govtIdType;
+	@Column(name="phoneNo")
     private String phoneNo;
+	@Column(name="relation")
     private Relation relation;
     
 	/**

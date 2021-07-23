@@ -1,11 +1,21 @@
 package com.cg.iba.entities;
 
-public class Beneficiary {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="beneficiary")
+public class Beneficiary {
+	@Column(name="beneficiaryId")
 	private long  beneficiaryId;
+	@Column(name="beneficiaryName")
 	private String beneficiaryName;
+	@Column(name="beneficiaryAccNo")
 	private long  beneficiaryAccNo;
+	@Column(name="ifsc")
 	private String IFSC;
+	@Column(name="accountType")
 	private AccountType accountType;
 	/**
 	 * 
