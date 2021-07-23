@@ -2,16 +2,27 @@ package com.cg.iba.entities;
 
 
 import java.time.LocalDateTime;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 //import java.util.Set;
+@Entity
+@Table(name="Transaction")
 
 public class Transaction {
-
+	@Column(name="transactionId")
     private long transactionId;
+	@Column(name="amount")
     private double amount;
+	@Column(name="transactionType")
     private TransactionType transactionType; 
+	@Column(name="transactionDateAndTime")
     private LocalDateTime dateTime; 
     private Account bankAccount; 
+	@Column(name="transactionStatus")
     private TransactionStatus transactionStatus;
+	@Column(name="transactionRemarks")
     private String transactionRemarks;
     /**
 	 * 
@@ -34,10 +45,10 @@ public class Transaction {
 		super();
 		this.transactionId = transactionId;
 		this.amount = amount;
-		this.transactionType = transactionType;
+		//this.transactionType = transactionType;
 		this.dateTime = dateTime;
-		this.bankAccount = bankAccount;
-		this.transactionStatus = transactionStatus;
+		//this.bankAccount = bankAccount;
+		//this.transactionStatus = transactionStatus;
 		this.transactionRemarks = transactionRemarks;
 	}
 	
